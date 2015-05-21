@@ -27,7 +27,18 @@ select HECRAS River Analysis System (1.1) from the pop-up window
 this will build definitions and import modules of RAS-Controller for use
 
 """
+# Extract the model zip files to a specified folder location
+import zipfile
+ras_folder = 'C:\Users\Solo\Dropbox\Python\HEC-RAS_Models'
+#ras_file = 'C:/Users/solo/Dropbox/Python/Solomon_Xing_Min/dtl_tuckasegee_rvr.prj'; # project name ########## CHANGE 1  - file name ###############
+outpath = 'C:\Users\Solo\Dropbox\Python\HEC-RAS_Models\extracted'
 
+# Extract all files to outpath
+for filename in glob.glob("*.zip"):
+    with zipfile.ZipFile(filename, "r") as z:
+        z.extractall(outpath)
+
+#def GetEntrenchmentRatio():
 # Import modules and HEC-RAS Controller
 import win32com.client
 import inspect
@@ -43,8 +54,19 @@ RC4 = win32com.client.Dispatch("RAS41.HECRASCONTROLLER") # not case sensitive
 RC = win32com.client.Dispatch("RAS500.HECRASCONTROLLER") # HEC-RAS Version 5 (Beta)
 
 # Check out the methods in the controller
-inspect.getmembers(RC, predicate=inspect.ismethod)
-ov = RC.Output_Variables()
+# inspect.getmembers(RC, predicate=inspect.ismethod)
+#ov = RC.Output_Variables()
+#RC.ShowRAS()
+# RAS Geometry Files
+#RC.Schematic_ReachCount()
+#RC.Schematic_ReachPointCount()
+#RC.Schematic_XSCount()
+#XSPointCount = RC.Schematic_XSPointCount()
+# h.Schematic_XSPoints()
+# h.Geometry_GetNode()
+# RC.ShowRas()#To see the HEC-RAS application
+# Sub routine:GetWSEandVelocity()
+# Retrieving Output Procedures: Pg 41, 42, 43
 
 ###############     Global Parameters/Variables: Code/ID for the output feature    ####################
 ################   this bit can be converted into a textfile with variable code   #####################
@@ -97,42 +119,12 @@ RStationID = 264; # Right Station of XS
 os.getcwd()
 os.chdir("C:\Users\solo\Dropbox\Python\HEC-RAS_Models")  ## This has to be adjusted to your directory of Dropbox
 
-# h.OpenProject("")
-# thelist = dir(RC) # what is this?
 thelist = dir(RC)
-
-import zipfile
-ras_folder = 'C:\Users\Solo\Dropbox\Python\HEC-RAS_Models'
-#ras_file = 'C:/Users/solo/Dropbox/Python/Solomon_Xing_Min/dtl_tuckasegee_rvr.prj'; # project name ########## CHANGE 1  - file name ###############
-outpath = 'C:\Users\Solo\Dropbox\Python\HEC-RAS_Models\extracted'
-
-# Extract all files to outpath
-for filename in glob.glob("*.zip"):
-    with zipfile.ZipFile(filename, "r") as z:
-        z.extractall(outpath)
-
 
 os.chdir("C:\Users\solo\Dropbox\Python\HEC-RAS_Models\extracted")
 geometryfiles = glob.glob("*.g01")
 projectfiles = glob.glob("*.prj")
 
-##############  
-#import zipfile
-#
-#fh = open('test.zip', 'rb')
-#z = zipfile.ZipFile(fh)
-#for name in z.namelist():
-#    outpath = "C:\\"
-#    z.extract(name, outpath)
-#fh.close()
-#
-#################
-#
-#import zipfile
-#
-#with zipfile.ZipFile('test.zip', "r") as z:
-#    z.extractall("C:\\")
-##################
 BigXSPointX = []
 EntRatio = []
 BigER  = []
@@ -142,18 +134,6 @@ for idx, ras_file in enumerate(projectfiles):
     #print idx, ras_file
     RC.Project_Open('C:\Users\solo\Dropbox\Python\HEC-RAS_Models\extracted\\' + ras_file) 
     # first time use -> pop up for accepting terms
-    #RC.ShowRAS()
-    # RAS Geometry Files
-    #RC.Schematic_ReachCount()
-    #RC.Schematic_ReachPointCount()
-    #RC.Schematic_XSCount()
-    #XSPointCount = RC.Schematic_XSPointCount()
-    # h.Schematic_XSPoints()
-    # h.Geometry_GetNode()
-    # RC.ShowRas()  # To see the HEC-RAS application
-    # Sub routine: GetWSEandVelocity()
-    # Retrieving Output Procedures: Pg 41, 42, 43
-
     # Get number of cross-sections
     NumRS =  RC.Schematic_XSCount(); # Number of nodes HEC-RAS will populate: not sure -> verify this
     StrNodeType = "" ############  XS node type
