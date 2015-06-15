@@ -1,3 +1,8 @@
+'''
+@author: Xing Zheng
+Extracts elevations at station points of a cross-section from an intermediate file
+'''
+
 import string
 import os
 import sys
