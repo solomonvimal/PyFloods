@@ -1,0 +1,15 @@
+#!/bin/bash
+#$ -V
+#$ -cwd
+#$ -N XS_Averaging_run 
+#$ -j y 
+#$ -o $XS_Averaging2.oJobID
+#$ -pe 2way 24
+#$ -q normal
+#$ -l h_rt=04:00:00
+#$ -M solomon.vimal@gmail.com
+#$ -m be 
+#$ -A NFIE
+set -x 
+#ibrun /work/03574/solomonv/rapid/run/rapid
+ibrun python /home1/03574/solomonv/XS_averaging_by_COMID_TACC.py
