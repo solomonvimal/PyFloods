@@ -4,6 +4,11 @@ Created on Fri Jul 10 8:21:49 2015
 County_wide
 @author: Solo
 Takes the path to the county folder and gives out a table of entrenchment values for that county
+Modules reqiuired:
+os, glob, win32, inspect, numpy, pickle, re, sys, time, csv, zipfile, 
+
+
+
 """
 ##################                                    #########################
 ##################            Variables               #########################
