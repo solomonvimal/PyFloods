@@ -1,7 +1,9 @@
 # PyFloods
 Python module for floods
 
-I made this repository to save time for folks who are getting started with HEC-RAS Controller and Python. It is not well-maintained, but I encourage you to develop it further.
+I made this repository a long time ago, to save time for folks who are getting started with HEC-RAS Controller and Python. 
+
+It is not well-written or well-maintained, but does offer some useful starting points - if you use this repo, I encourage you to develop it further and contribute to it.
 
 # Reference
 The book titled 'Breaking the HEC-RAS Code' by Chris Goodell (https://tinyurl.com/Chris-HEC-RAS-book) is what I used to learn about the functions of the HEC-RAS Controller. You can do without the book if you are able to follow the Python code in this repository (HEC_RAS_controller.py) and the key (HEC-RAS function IDs) in this google sheet (https://tinyurl.com/ras-controller-functions). 
