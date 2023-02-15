@@ -13,9 +13,10 @@ Chris Goodell maintains a forum for users of his book. If you are stuck with any
 
 Another small tip that I think might help you along the way is that everything about the RAS-Controller works somewhat like mouse clicks on the HEC-RAS GUI itself, so you might want to simply automate the mouse movements with some Python module like 'win32api' if you have no way of doing it with native HEC-RAS controller methods. Here is an example code:
 
-import win32api, win32con 
-def click(x,y): 
-    win32api.SetCursorPos((x,y)) 
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,x,y,0,0) 
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x,y,0,0) 
-click(10,10)
+
+    import win32api, win32con 
+    def click(x,y): 
+        win32api.SetCursorPos((x,y)) 
+        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,x,y,0,0) 
+        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x,y,0,0) 
+    click(10,10)
