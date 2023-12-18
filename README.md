@@ -8,7 +8,7 @@ It is not well-written or well-maintained, but does offer some useful starting p
 # Reference
 The book titled 'Breaking the HEC-RAS Code' by Chris Goodell (https://tinyurl.com/Chris-HEC-RAS-book) is what I used to learn about the functions of the HEC-RAS Controller. You can do without the book if you are able to follow the Python code in this repository (HEC_RAS_controller.py) and the key (HEC-RAS function IDs) in this google sheet (https://tinyurl.com/ras-controller-functions). 
 
-Chris Goodell maintains a forum for users of his book. If you are stuck with anything related to the Controller or HEC-RAS in general, you may post your questions there. I sometimes check the questions there that are related to Python.
+Chris Goodell maintains a forum for users of his book. If you are stuck with anything related to the Controller or HEC-RAS in general, you may post your questions there. I sometimes check the questions there that are related to Python. You're also welcomed to email me - solomon.vimal@gmail.com
 
 
 # Mouse Automation
